@@ -70,6 +70,63 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .pestanas button:hover { color: #fff; }
 .pestanas button.activa { background: var(--amarillo); color: var(--tinta); }
 
+.barra__superior {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.barra__contenido { flex-direction: column; align-items: stretch; gap: 0; }
+.barra .pestanas { align-self: flex-start; }
+.sesion { display: flex; align-items: center; gap: 12px; }
+.sesion__nombre { display: flex; flex-direction: column; text-align: right; font-weight: 600; line-height: 1.2; }
+.sesion__rol { font-size: 13px; font-weight: 500; color: var(--amarillo); }
+.btn.btn--oscuro { background: transparent; color: #fff; border-color: #4a5763; }
+.btn.btn--oscuro:hover { border-color: #b9c3cc; }
+
+/* ===== Pantalla de acceso (login / registro inicial) ===== */
+.acceso {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: var(--tinta);
+  border-top: 6px solid var(--amarillo);
+}
+.acceso__panel {
+  width: 100%;
+  max-width: 420px;
+  background: var(--panel);
+  border-radius: 10px;
+  padding: 28px 28px 30px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+}
+.acceso__marca {
+  font-family: var(--titulos);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--amarillo-oscuro);
+  margin: 0 0 6px;
+}
+.acceso__titulo {
+  font-family: var(--titulos);
+  font-size: 34px;
+  line-height: 1.05;
+  margin: 0 0 10px;
+}
+.acceso__texto { color: var(--tinta-suave); margin: 0 0 20px; font-size: 15px; }
+.acceso__aviso {
+  background: #fff8e1;
+  border-left: 3px solid var(--amarillo);
+  padding: 8px 10px;
+  margin: 0 0 16px;
+  font-size: 15px;
+}
+.btn--ancho { width: 100%; padding: 11px 16px; margin-top: 4px; }
+.chip.chip--admin { background: #fff3c4; color: #7a5c00; }
+
 /* ===== Contenido ===== */
 .contenido { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
 
@@ -286,4 +343,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .tabla td:first-child::before { display: none; }
   .acciones { padding-top: 10px !important; }
   .formulario__fila { grid-template-columns: 1fr; }
+  .barra .pestanas { align-self: stretch; overflow-x: auto; }
+  .pestanas button { padding: 10px 12px; font-size: 17px; white-space: nowrap; }
+  .sesion__nombre { text-align: left; }
+  .sesion { margin-bottom: 10px; }
+  .marca { margin: 12px 0 4px; }
 }

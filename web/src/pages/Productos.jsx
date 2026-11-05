@@ -7,7 +7,7 @@ const VACIO = { nombre: '', descripcion: '', precio: '', stock: '', id_categoria
 
 const formatoBs = (n) => `Bs ${Number(n).toFixed(2)}`;
 
-export default function Productos({ avisar }) {
+export default function Productos({ avisar, esAdmin }) {
   const [productos, setProductos] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [buscar, setBuscar] = useState('');
@@ -193,7 +193,9 @@ export default function Productos({ avisar }) {
                 <td data-label="Stock"><StockBarra stock={p.stock} /></td>
                 <td className="acciones">
                   <button className="btn btn--chico" onClick={() => abrirEditar(p)}>Editar</button>
-                  <button className="btn btn--chico btn--peligro" onClick={() => eliminar(p)}>Eliminar</button>
+                  {esAdmin && (
+                    <button className="btn btn--chico btn--peligro" onClick={() => eliminar(p)}>Eliminar</button>
+                  )}
                 </td>
               </tr>
             ))}
