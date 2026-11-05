@@ -1,0 +1,34 @@
+PARTE DE HUGO: base de datos + backend + Postman
+(se trabaja en la rama "backend")
+
+1. Acepta la invitacion al repositorio (te llego por correo).
+
+2. Revisa que Git tenga tu nombre:
+   git config --global user.name "Hugo Nava"
+   git config --global user.email "tu-correo-de-github"
+
+3. Clona el repositorio y crea tu rama:
+   git clone https://github.com/keyrafelipez3-droid/Sistemas_ferreteria.git
+   cd Sistemas_ferreteria
+   git checkout -b backend
+
+4. Copia la carpeta database dentro del repositorio:
+   git add database
+   git commit -m "Script de base de datos con categorias y productos"
+
+5. Copia la carpeta backend:
+   git add backend
+   git commit -m "API REST de categorias y productos con Express y MySQL"
+
+6. Copia la carpeta postman:
+   git add postman
+   git commit -m "Coleccion de Postman para probar la API"
+
+7. Sube tu rama:
+   git push -u origin backend
+
+8. En GitHub aparecera el boton "Compare & pull request".
+   Abre el pull request de backend hacia main y avisa a Alaitz
+   para que lo revise y haga el merge.
+
+Para probar: ver README.md del repositorio (seccion "Como ejecutarlo").
