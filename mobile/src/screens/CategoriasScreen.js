@@ -6,7 +6,7 @@ import { Boton, Campo, ErrorForm, Estado, Hoja } from '../components/ui';
 
 const VACIO = { nombre: '', descripcion: '' };
 
-export default function CategoriasScreen({ avisar }) {
+export default function CategoriasScreen({ avisar, esAdmin }) {
   const [categorias, setCategorias] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState('');
@@ -115,7 +115,9 @@ export default function CategoriasScreen({ avisar }) {
             {c.descripcion ? <Text style={s.desc}>{c.descripcion}</Text> : null}
             <View style={s.acciones}>
               <Boton titulo="Editar" chico onPress={() => abrirEditar(c)} />
-              <Boton titulo="Eliminar" chico tipo="peligro" onPress={() => eliminar(c)} />
+              {esAdmin && (
+                <Boton titulo="Eliminar" chico tipo="peligro" onPress={() => eliminar(c)} />
+              )}
             </View>
           </View>
         )}

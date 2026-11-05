@@ -4,7 +4,7 @@ import Modal from '../components/Modal.jsx';
 
 const VACIO = { nombre: '', descripcion: '' };
 
-export default function Categorias({ avisar }) {
+export default function Categorias({ avisar, esAdmin }) {
   const [categorias, setCategorias] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [errorCarga, setErrorCarga] = useState('');
@@ -124,13 +124,15 @@ export default function Categorias({ avisar }) {
                 <td data-label="Productos" className="num">{c.total_productos}</td>
                 <td className="acciones">
                   <button className="btn btn--chico" onClick={() => abrirEditar(c)}>Editar</button>
-                  <button
-                    className="btn btn--chico btn--peligro"
-                    onClick={() => eliminar(c)}
-                    title={c.total_productos > 0 ? 'Tiene productos: primero muévelos o elimínalos' : undefined}
-                  >
-                    Eliminar
-                  </button>
+                  {esAdmin && (
+                    <button
+                      className="btn btn--chico btn--peligro"
+                      onClick={() => eliminar(c)}
+                      title={c.total_productos > 0 ? 'Tiene productos: primero muévelos o elimínalos' : undefined}
+                    >
+                      Eliminar
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
