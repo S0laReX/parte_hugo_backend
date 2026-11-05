@@ -34,7 +34,7 @@ function SelectorCategoria({ categorias, valor, onCambiar, conTodas }) {
   );
 }
 
-export default function ProductosScreen({ avisar }) {
+export default function ProductosScreen({ avisar, esAdmin }) {
   const [productos, setProductos] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [buscar, setBuscar] = useState('');
@@ -176,7 +176,9 @@ export default function ProductosScreen({ avisar }) {
 
       <View style={s.acciones}>
         <Boton titulo="Editar" chico onPress={() => abrirEditar(p)} />
-        <Boton titulo="Eliminar" chico tipo="peligro" onPress={() => eliminar(p)} />
+        {esAdmin && (
+          <Boton titulo="Eliminar" chico tipo="peligro" onPress={() => eliminar(p)} />
+        )}
       </View>
     </View>
   );
